@@ -1,1 +1,17 @@
-
+<aura:component implements="force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes,lightning:availableForFlowActions,force:hasRecordId" controller="GeolocationController" >
+   <aura:html tag='style'>
+    .slds-backdrop {
+    background: rgba(43, 40, 38, 0) !important;  
+    }
+    .slds-fade-in-open {
+    display:none !important;
+   }   
+   </aura:html>
+    <!--define attributes-->
+    <aura:attribute name="latitude" type="Decimal" />
+    <aura:attribute name="longitude" type="Decimal" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+     
+    
+</aura:component>
