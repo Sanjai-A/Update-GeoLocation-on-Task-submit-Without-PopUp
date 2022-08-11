@@ -1,1 +1,11 @@
-
+public with sharing class GeolocationController {
+ 
+    @AuraEnabled public static void updateGeolocation(Id taskId, Decimal lat, Decimal lng) {
+        Task taskToUpdate = [SELECT Id FROM Task WHERE Id = :taskId];
+        system.debug(taskId);
+        system.debug(taskToUpdate);
+        taskToUpdate.Current_Location__Latitude__s = lat;
+        taskToUpdate.Current_Location__Longitude__s = lng;
+        update taskToUpdate;
+    }
+}
